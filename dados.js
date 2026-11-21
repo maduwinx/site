@@ -2,24 +2,26 @@ const JORNAL = "Gazeta Mendes";
 const INICIO = "2026-11-23";
 
 const COFRE = {
-  // Enigma 1: "camera do fundo" (Cifra de César -3 em "Fdphud gr ixqgr")
   "07c4959c0b5d9efbb1e75c93cf215a0aa8ed423cb9ef6d4822e12cb6069a3cc8": {
-    msg: "REGISTRO D01-F LOCALIZADO: A câmera do fundo não pertencia ao Cinema Imperial. O cabo coaxial atravessava o muro até o terminal ferroviário. Verifique os registros do primeiro dia onde a praça termina e a linha férrea é interrompida.",
+    msg: "REGISTRO D01-F LOCALIZADO: A câmera do fundo não pertencia ao Cinema Imperial. O cabo coaxial atravessava o muro até o terminal ferroviário. Verifique os registros do primeiro dia onde a praça termina.",
     ir: "#m2"
   },
-  // Enigma 2: "quarto 17" (Texto oculto na matéria do Cinema Imperial)
   "79919b82f9d4b5a77e1d588f8f8564830f1a8a3167f684162834b76e7f6f186d": {
-    msg: "ARQUIVO CONFIDENCIAL H-17: Reserva efetuada em dinheiro vivo por um intermediário usando as iniciais R.C. O hóspede anterior deixou um caderno de anotações no fundo falso do guarda-roupa antes da chegada da repórter Lizzie Mitchell.",
-    ir: "#m4"
+    msg: "ARQUIVO CONFIDENCIAL H-17: Reserva efetuada em dinheiro vivo por um intermediário usando as iniciais R.C. O hóspede anterior deixou um caderno no fundo falso do guarda-roupa antes da chegada de Lizzie Mitchell.",
+    ir: "#m3"
   },
-  // Enigma 3: "00h12" (Vigenère em "Zitw lq zcazk" com chave "azevedo" -> "zero e doze")
   "351f9a0d2f0f2e61d6452699235b2c2d95e824c63689575c79e0917226d35453": {
-    msg: "TRANSCRIÇÃO DE ÁUDIO (00h12): [Ruído de estática] 'O painel voltou, mas a fita das onze e quarenta já foi substituída. Se a perícia perguntar, a queda de energia durou a madrugada inteira.' [Fim da gravação]",
-    ir: "#m6"
+    msg: "TRANSCRIÇÃO DE ÁUDIO (00h12): [Estática] 'O painel voltou, mas a fita das onze e quarenta já foi substituída. Se a perícia perguntar, a queda de energia durou a madrugada inteira.'",
+    ir: "#m5"
   },
-  // Enigma 4: "sl03 1998" (Código do cadeado/protocolo SL-03 + ano 1998)
   "23c77e320b9f6e9a9807c025d495144a064b4b657726a26d0996e4b301916516": {
-    msg: "DOSSIÊ ENCERRADO — DIA 1 COMPLETO: A perícia omitiu que existia uma quarta câmera ativa na madrugada do sumiço, instalada enquanto Steve Martins já prestava depoimento na delegacia. O observador ainda está em Mendes. Aguarde a edição de amanhã."
+    msg: "DOSSIÊ DIA 1 CONCLUÍDO: Existia uma quarta câmera ativa na madrugada do sumiço, instalada enquanto Steve Martins já estava na delegacia. Aguarde as próximas edições."
+  },
+  "50868b07b79a6f07fa9a20482f1b4eb74bf960c910a8b87447edbf3b321b40f1": {
+    msg: "FICHA DE VISITAÇÃO: Lucas Andrade assinou a retirada de chaves da sala de projeção duas vezes no mês anterior ao desaparecimento."
+  },
+  "2d4a5d8e5f95f94761ea98fe8b136c13bc14e8a43fe670a604a3b52809b38b46": {
+    msg: "CAIXA 38 — ACERVO BENNET: Negativos originais revelam que a passagem subterrânea entre o Cinema Imperial e a Estação nunca foi emparedada."
   }
 };
 
@@ -115,50 +117,7 @@ const DIAS = [
     deck: "Vereadores alegam falta de quórum para votar requerimento que pede acesso às imagens públicas da Praça da Estação.",
     corpo: `
       <p>A Comissão de Segurança Urbana da Câmara Municipal de Mendes adiou pela segunda vez a votação do requerimento que solicita à prefeitura a entrega integral das gravações das câmeras instaladas no entorno da Praça da Estação.</p>
-      <p>O pedido havia sido protocolado após questionamentos sobre falhas de gravação justamente na madrugada do desaparecimento de Eliza Costa. Apenas três parlamentares compareceram à sessão.</p>
       <p>Nos bastidores, assessores comentam que a decisão de segurar o requerimento partiu diretamente do gabinete ligado ao advogado <span data-clique data-pista="Anotação de apuração: Gabriel Azevedo assinou o parecer jurídico que bloqueou a cópia das fitas.">responsável pelos contratos de vigilância do município</span>.</p>
-    `
-  },
-  {
-    d: 1,
-    secao: "Política",
-    hora: "16h05",
-    kicker: "Diário Oficial",
-    autor: "Redação Política",
-    titulo: "Prefeitura homologa aditivo sem licitação para manutenção de arquivos públicos",
-    deck: "Contrato prevê digitalização de documentos antigos do setor de obras e urbanismo.",
-    corpo: `
-      <p>Foi publicado na edição de hoje do Diário Oficial do Município o extrato de aditivo contratual destinado à reorganização do arquivo morto da Secretaria de Obras, situado no subsolo do prédio anexo à estação.</p>
-      <p>O termo estabelece que <span class="sussurro" data-pista="O acesso ao subsolo ficou restrito a dois servidores autorizados.">apenas funcionários credenciados</span> poderão manusear as caixas referentes às plantas baixas da década de 1990.</p>
-      <p>Entre os processos listados para transferência está o protocolo <strong>#1998-SL03</strong>, referente à antiga galeria subterrânea que ligava o teatro municipal à plataforma ferroviária.</p>
-    `
-  },
-  {
-    d: 1,
-    secao: "Cultura",
-    hora: "16h40",
-    kicker: "Memória Urbana",
-    autor: "Caderno Cultura",
-    titulo: "Mostra no arquivo municipal reúne cartazes originais do Cinema Imperial dos anos 1970",
-    deck: "Exposição resgata a história da sala de projeção fundada ao lado da antiga estação ferroviária.",
-    corpo: `
-      <p>O Arquivo Histórico de Mendes abriu hoje uma pequena mostra dedicada aos cinquenta anos do <strong>Cinema Imperial</strong>, destacando programas impressos, ingressos antigos e fotografias da época em que os trens ainda chegavam à praça central.</p>
-      <p>Entre os itens expostos está a planta original do prédio, que mostra a existência de um corredor técnico ligando a antiga bilheteria diretamente aos fundos do terreno.</p>
-      <p>A curadoria informou que parte do acervo fotográfico pertencente à família de <strong>Victor Bennet</strong> ainda está sendo catalogada e deve ser exibida nas próximas semanas, <span class="selecione">incluindo negativos datados de 1998</span>.</p>
-    `
-  },
-  {
-    d: 1,
-    secao: "Cultura",
-    hora: "17h15",
-    kicker: "Patrimônio",
-    autor: "Caderno Cultura",
-    titulo: "Restauradora denuncia desaparecimento de rolos de microfilme da biblioteca pública",
-    deck: "Material continha edições locais publicadas entre os anos de 1997 e 1999.",
-    corpo: `
-      <p>A restauradora documental <strong>Alice Morgan</strong> protocolou hoje uma notificação junto à direção da Biblioteca Municipal relatando o sumiço de três caixas de microfilmes do acervo histórico.</p>
-      <p>Segundo ela, os rolos desaparecidos reuniam plantas arquitetônicas e reportagens sobre a desativação do ramal ferroviário de Mendes.</p>
-      <p><span data-clique data-pista="Nota de entrevista: Alice afirmou que o livro de retiradas teve uma página arrancada.">“Alguém sabia exatamente qual gaveta abrir e qual ano levar”</span>, declarou a especialista à reportagem.</p>
     `
   },
   {
@@ -176,16 +135,318 @@ const DIAS = [
     `
   },
   {
-    d: 1,
+    d: 2,
+    secao: "Polícia",
+    hora: "08h00",
+    kicker: "Depoimento",
+    autor: "Lizzie Mitchell",
+    titulo: "Defesa de Steve Martins apresenta comprovante de pedágio fora da cidade na noite do sumiço",
+    deck: "Documento indica que veículo do suspeito passou pela praça da rodovia estadual às 23h50.",
+    corpo: `
+      <p>O advogado de defesa de <strong>Steve Martins</strong> protocolou hoje no fórum um recibo eletrônico de pedágio que contradiz o depoimento da testemunha que afirmou ter visto o carro parado na Rua Pedro Álvares até as 02h40.</p>
+      <p>Se o horário do recibo for autenticado pela perícia, o suspeito estava a quarenta quilômetros de Mendes no exarento momento em que as câmeras do edifício pararam de gravar.</p>
+    `
+  },
+  {
+    d: 3,
+    secao: "Cidade",
+    hora: "09h15",
+    kicker: "Hospedagem",
+    autor: "Redação Cidade",
+    titulo: "Hotel Central passa por reforma elétrica após curto-circuito no segundo andar",
+    deck: "Hóspedes foram realocados temporariamente enquanto técnicos revisam a fiação antiga do corredor.",
+    corpo: `
+      <p>O tradicional Hotel Central, localizado a duas quadras da redação da <strong>Gazeta Mendes</strong>, interditou parte de seu segundo pavimento após uma sobrecarga elétrica atingir os quartos de final ímpar.</p>
+      <p>Segundo a gerência, apenas o <span class="sussurro" data-pista="A ficha de hóspedes daquele quarto desapareceu do livro de registro.">Quarto 17</span> permaneceu com a fechadura mecânica intacta.</p>
+    `
+  },
+  {
+    d: 5,
+    secao: "Cultura",
+    hora: "11h00",
+    kicker: "Restauração",
+    autor: "Caderno Cultura",
+    titulo: "Restauradora Alice Morgan identifica cortes manuais em rolos de filme do acervo municipal",
+    deck: "Especialista afirma que fotogramas específicos foram removidos com lâmina antes da catalogação.",
+    corpo: `
+      <p>Convidada para higienizar os arquivos fotográficos da Biblioteca Pública, a restauradora <strong>Alice Morgan</strong> comunicou à diretoria que diversos rolos referentes à reforma urbana de 1998 apresentam emendas feitas fora do padrão técnico.</p>
+      <p>Em um dos negativos, ela identificou a silhueta de uma câmera industrial apontada não para a rua, mas para a janela lateral do edifício de Eliza Costa.</p>
+    `
+  },
+  {
+    d: 8,
+    secao: "Polícia",
+    hora: "07h30",
+    kicker: "Perícia Independente",
+    autor: "Lizzie Mitchell",
+    titulo: "Laudo paralelo aponta existência de quatro pontos de vigilância distintos no quarteirão",
+    deck: "Equipamentos utilizavam frequências diferentes e não pertenciam ao mesmo operador.",
+    corpo: `
+      <p>Uma análise técnica realizada sobre os cabos recolhidos na escada de serviço revelou que o sistema instalado no prédio de Eliza Costa operava em rede fechada, conectada a um receptor externo na direção da Praça da Estação.</p>
+      <p>Os técnicos concluíram que havia <span data-clique data-pista="Anotação de Lizzie: Steve Martins não tinha conhecimento técnico para montar uma rede coaxial subterrânea.">pelo menos dois operadores distintos</span> monitorando o local simultaneamente.</p>
+    `
+  },
+  {
+    d: 11,
+    secao: "Cidade",
+    hora: "13h40",
+    kicker: "Vizinhança",
+    autor: "Redação Cidade",
+    titulo: "Irmãos Lucas e Melissa Andrade prestam novo esclarecimento sobre movimentação no corredor",
+    deck: "Moradores do quarto andar afirmam ter ouvido passos na escada de serviço após a queda de energia.",
+    corpo: `
+      <p>Os irmãos <strong>Lucas e Melissa Andrade</strong>, que residem no apartamento vizinho ao de Eliza Costa, compareceram novamente à delegacia nesta manhã para complementar o depoimento inicial.</p>
+      <p>Melissa relatou que encontrou no capacho da porta uma chave antiga sem identificação, enquanto Lucas afirmou ter visto um funcionário usando uniforme da manutenção descer em direção ao subsolo.</p>
+    `
+  },
+  {
+    d: 14,
+    secao: "Política",
+    hora: "16h00",
+    kicker: "Transparência",
+    autor: "Redação Política",
+    titulo: "Ex-editor Alex Ribeiro deixa conselho consultivo de comunicação da prefeitura",
+    deck: "Saída ocorre um dia após questionamentos sobre contratos de arquivamento digital firmados em 2011.",
+    corpo: `
+      <p>O jornalista e ex-editor-chefe <strong>Alex Ribeiro</strong> formalizou hoje seu pedido de desligamento do conselho municipal de comunicação, alegando motivos pessoais.</p>
+      <p>Nos corredores da prefeitura, comenta-se que a decisão ocorreu logo após a imprensa solicitar acesso às notas fiscais assinadas durante sua gestão.</p>
+    `
+  },
+  {
+    d: 18,
+    secao: "Polícia",
+    hora: "06h30",
+    kicker: "Reviravolta no Inquérito",
+    autor: "Lizzie Mitchell",
+    titulo: "Gravação recuperada mostra atividade na câmera do subsolo enquanto Steve Martins estava preso",
+    deck: "Metadados confirmam que o dispositivo foi religado manualmente quarenta horas após a detenção do suspeito.",
+    corpo: `
+      <p>Uma perícia complementar realizada nos servidores antigos do edifício da Rua Pedro Álvares derrubou a tese de que Steve Martins agia sozinho.</p>
+      <p>O registro eletrônico prova que a quarta câmera — instalada no acesso subterrâneo que liga o quarteirão à antiga estação — foi ativada exatamente às <strong>03h15</strong> da madrugada de ontem, período em que Martins permanecia sob custódia policial.</p>
+      <p>Para a equipe de investigação, o verdadeiro observador continua operando livremente em Mendes.</p>
+    `
+  },
+  {
+    d: 22,
+    secao: "Cidade",
+    hora: "10h00",
+    kicker: "Segurança Privada",
+    autor: "Redação Cidade",
+    titulo: "Empresa terceirizada nega vínculo com vigilante identificado apenas como R. Castro",
+    deck: "Crachá encontrado próximo à grade da estação ferroviária não consta no cadastro oficial de funcionários.",
+    corpo: `
+      <p>A empresa responsável pela vigia noturna dos prédios públicos do centro emitiu nota negando que o nome <strong>R. Castro</strong> faça parte de seu quadro de colaboradores.</p>
+      <p>O crachá plastificado foi recolhido por moradores junto ao muro interditado da Praça da Estação.</p>
+    `
+  },
+  {
+    d: 26,
+    secao: "Opinião",
+    hora: "08h00",
+    kicker: "Errata",
+    autor: "Redação",
+    titulo: "Nota de esclarecimento sobre registros publicados na edição de estreia",
+    deck: "Texto publicado sem assinatura na madrugada desta quinta-feira.",
+    corpo: `
+      <p><em>[NOTA INSERIDA NO SISTEMA ÀS 04h12]</em> — A redação informa aos leitores que alguns documentos citados nas últimas semanas não devem ser procurados nos arquivos públicos. <span class="selecione">Nós sabemos que você está lendo cada linha deste arquivo.</span></p>
+    `
+  },
+  {
+    d: 30,
+    secao: "Cultura",
+    hora: "15h00",
+    kicker: "Acervo Fotográfico",
+    autor: "Caderno Cultura",
+    titulo: "Fotógrafo Victor Bennet anuncia abertura de caixas lacradas sobre a construção do Cinema Imperial",
+    deck: "Material guardado há três décadas contém plantas originais do subsolo da Praça da Estação.",
+    corpo: `
+      <p>O veterano fotógrafo documental <strong>Victor Bennet</strong> informou à secretaria de cultura que pretende doar ao arquivo municipal três caixas de negativos inéditos registrados durante a construção do Cinema Imperial e do antigo túnel ferroviário.</p>
+      <p>Segundo Bennet, as imagens mostram estruturas subterrâneas que não constam nos mapas atuais da prefeitura.</p>
+    `
+  },
+  {
+    d: 34,
+    secao: "Política",
+    hora: "09h00",
+    kicker: "Bastidores",
+    autor: "Redação Política",
+    titulo: "Câmara arquiva pedido de CPI sobre contratos de monitoramento urbano",
+    deck: "Maioria alega que empresa responsável já encerrou atividades no município.",
+    corpo: `
+      <p>Por nove votos a quatro, o plenário da Câmara Municipal decidiu arquivar o pedido de abertura de comissão parlamentar para investigar os contratos de câmeras instalados no entorno da Praça da Estação entre 2011 e 2026.</p>
+      <p>O parecer jurídico utilizado para barrar a votação foi redigido pelo escritório de <strong>Gabriel Azevedo</strong>.</p>
+    `
+  },
+  {
+    d: 38,
+    secao: "Polícia",
+    hora: "06h15",
+    kicker: "Plantão Policial",
+    autor: "Lizzie Mitchell",
+    titulo: "Fotógrafo Victor Bennet é encontrado morto em seu estúdio no Centro Histórico",
+    deck: "Polícia trata o caso inicialmente como mal súbito, mas caixas de negativos recentes desapareceram da bancada.",
+    corpo: `
+      <p>O fotógrafo documental <strong>Victor Bennet</strong>, de 68 anos, foi encontrado sem vida na madrugada desta quinta-feira dentro de seu estúdio na Rua das Acácias, dias após anunciar a doação de arquivos históricos ao acervo municipal.</p>
+      <p>Segundo vizinhos, a porta do imóvel estava encostada e a luz da sala de revelação permaneceu acesa durante toda a noite. <span data-clique data-pista="Anotação de Lizzie: A caixa etiquetada como 'Subsolo Estação 1998' não estava entre os materiais recolhidos pela perícia.">Apenas três caixas metálicas foram catalogadas pela equipe</span>.</p>
+      <p>No bolso do paletó do fotógrafo foi encontrado um bilhete de papel carbono com a sequência: <strong>Bennet 38</strong>.</p>
+    `
+  },
+  {
+    d: 42,
+    secao: "Opinião",
+    hora: "07h00",
+    kicker: "Retificação",
+    autor: "Conselho Editorial",
+    titulo: "Nota de correção sobre reportagens publicadas no mês anterior",
+    deck: "Direção informa que dados técnicos divulgados sem revisão passaram por ajuste editorial.",
+    corpo: `
+      <p>A direção da <strong>Gazeta Mendes</strong> comunica aos assinantes que os horários mencionados nas reportagens referentes ao edifício da Rua Pedro Álvares, 90, foram revisados conforme o laudo oficial da delegacia.</p>
+      <p><span class="selecione">Não procure o que não pertence a esta edição. Pare enquanto ainda é apenas leitura.</span></p>
+    `
+  },
+  {
+    d: 47,
+    secao: "Cidade",
+    hora: "11h20",
+    kicker: "Urbanismo",
+    autor: "Redação Cidade",
+    titulo: "Obras de drenagem na Praça da Estação são suspensas por tempo indeterminado",
+    deck: "Prefeitura cita necessidade de estudo geotécnico próximo às fundações do Cinema Imperial.",
+    corpo: `
+      <p>A Secretaria de Infraestrutura interrompeu nesta manhã as escavações no trecho sul da Praça da Estação após operários encontrarem uma estrutura de alvenaria antiga abaixo do nível da calçada.</p>
+      <p>Moradores relataram que engenheiros ligados a <strong>R. Castro</strong> isolaram o perímetro com tapumes metálicos antes da chegada da imprensa.</p>
+    `
+  },
+  {
+    d: 52,
+    secao: "Polícia",
+    hora: "14h00",
+    kicker: "Testemunho",
+    autor: "Lizzie Mitchell",
+    titulo: "Melissa Andrade entrega à redação gravação feita no corredor na noite do desaparecimento",
+    deck: "Áudio registra o som de passos metálicos vindo da escada de serviço às 00h12.",
+    corpo: `
+      <p>A moradora <strong>Melissa Andrade</strong> procurou a redação da Gazeta Mendes nesta tarde para entregar uma cópia de segurança gravada em seu telefone celular na madrugada do sumiço de Eliza Costa.</p>
+      <p>No registro, é possível ouvir o destravamento de uma porta corta-fogo no subsolo exatamente no intervalo em que o sistema da portaria estava fora do ar.</p>
+    `
+  },
+  {
+    d: 58,
+    secao: "Cultura",
+    hora: "16h30",
+    kicker: "Acervo",
+    autor: "Alice Morgan",
+    titulo: "Microfilmes desaparecidos reaparecem em caixa anônima na portaria da Biblioteca",
+    deck: "Rolos estavam intactos, exceto pelas edições de novembro de 1998.",
+    corpo: `
+      <p>A restauradora <strong>Alice Morgan</strong> confirmou que duas das três caixas de microfilmes furtadas da biblioteca pública foram devolvidas durante a madrugada.</p>
+      <p>Segundo ela, um envelope pardo acompanhava o material com a inscrição datilografada: <span class="sussurro" data-pista="As coordenadas apontam para a entrada lateral do Cinema Imperial.">43°12'S 46°51'W</span>.</p>
+    `
+  },
+  {
+    d: 65,
+    secao: "Política",
+    hora: "10h00",
+    kicker: "Investigação",
+    autor: "Redação Política",
+    titulo: "Documentos ligam ex-editor Alex Ribeiro à empresa que instalou câmeras no Centro",
+    deck: "Registros comerciais apontam sociedade oculta encerrada meses antes do caso Eliza Costa.",
+    corpo: `
+      <p>Certidões obtidas pela reportagem na Junta Comercial revelam que o ex-editor-chefe <strong>Alex Ribeiro</strong> figurou como procurador da empresa responsável pela manutenção óptica dos prédios públicos da Praça da Estação.</p>
+      <p>Procurado, Ribeiro não respondeu às ligações da redação.</p>
+    `
+  },
+  {
+    d: 72,
+    secao: "Polícia",
+    hora: "08h45",
+    kicker: "Dossiê",
+    autor: "Lizzie Mitchell",
+    titulo: "Perito Brian Pacheco contesta cadeia de custódia dos equipamentos apreendidos no 4B",
+    deck: "Segundo especialista, os cartões de memória entregues ao fórum foram formatados antes do lacre.",
+    corpo: `
+      <p>O perito independente <strong>Brian Pacheco</strong> apresentou hoje um parecer técnico apontando inconsistências nos números de série das microcâmeras anexadas ao processo oficial.</p>
+      <p>De acordo com Pacheco, os dispositivos analisados pela polícia são modelos comerciais novos, substituídos para encobrir um sistema industrial instalado anos antes.</p>
+    `
+  },
+  {
+    d: 80,
+    secao: "Cidade",
+    hora: "19h00",
+    kicker: "Centro Histórico",
+    autor: "Redação Cidade",
+    titulo: "Cinema Imperial cancela sessão noturna após queda de energia na cabine de projeção",
+    deck: "Público deixou a sala 3 após cheiro de fumaça vindo do corredor técnico.",
+    corpo: `
+      <p>A exibição programada para a noite de hoje na sala 3 do <strong>Cinema Imperial</strong> foi interrompida pela metade devido a uma pane elétrica restrita ao segundo pavimento.</p>
+      <p>Funcionários informaram que o projetista <strong>Noah Prado</strong> permaneceu no prédio após o fechamento das portas para auxiliar os técnicos na vistoria do quadro de força.</p>
+    `
+  },
+  {
+    d: 85,
+    secao: "Polícia",
+    hora: "06h00",
+    kicker: "Urgente",
+    autor: "Lizzie Mitchell",
+    titulo: "Projetista Noah Prado é encontrado morto na cabine da sala 3 do Cinema Imperial",
+    deck: "Porta da cabine estava trancada por fora e escada que leva ao túnel da estação foi encontrada aberta.",
+    corpo: `
+      <p>O projetista <strong>Noah Prado</strong>, de 34 anos, foi encontrado morto na madrugada desta sexta-feira dentro da cabine de projeção da sala 3 do <strong>Cinema Imperial</strong>.</p>
+      <p>Ao lado da mesa de controle, peritos localizaram uma maleta metálica contendo fitas magnéticas rotuladas com datas referentes aos últimos seis meses de monitoramento da Rua Pedro Álvares, 90.</p>
+      <p><span data-clique data-pista="Nota final de Lizzie: Noah tentou copiar as fitas antes de entregá-las à redação.">A passagem subterrânea sob a cabine estava destrancada pela primeira vez desde 1998</span>.</p>
+    `
+  },
+  {
+    d: 92,
+    secao: "Polícia",
+    hora: "07h30",
+    kicker: "Revelação",
+    autor: "Lizzie Mitchell",
+    titulo: "Arquivos da maleta de Noah Prado revelam quem financiou a vinda da equipe de investigação a Mendes",
+    deck: "Transferências anônimas partiram de conta vinculada a antigo diretor do arquivo municipal.",
+    corpo: `
+      <p>A análise dos documentos recuperados na cabine do Cinema Imperial revelou que as denúncias anônimas que trouxeram a repórter <strong>Lizzie Mitchell</strong> a Mendes foram enviadas pelo próprio <strong>Victor Bennet</strong> semanas antes de sua morte.</p>
+      <p>Bennet descobriu que <strong>Eliza Costa</strong> havia fotografado acidentalmente o acesso subterrâneo da Praça da Estação durante uma pesquisa universitária e decidiu esconder a jovem fora da cidade antes que os responsáveis pelo esquema a alcançassem.</p>
+    `
+  },
+  {
+    d: 100,
+    secao: "Polícia",
+    hora: "09h00",
+    kicker: "Desfecho",
+    autor: "Redação Polícia",
+    titulo: "Ministério Público pede prisão preventiva de envolvidos na adulteração de provas do caso Eliza Costa",
+    deck: "Operação cumpre mandados na Secretaria de Obras, no escritório de advocacia e na empresa de vigilância.",
+    corpo: `
+      <p>Com base nas gravações originais entregues pela redação da <strong>Gazeta Mendes</strong>, o Ministério Público estadual denunciou hoje quatro agentes públicos e privados por fraude processual, ocultação de documentos e vigilância clandestina.</p>
+      <p>O inquérito que apontava Steve Martins como único responsável foi oficialmente anulado pela Justiça.</p>
+    `
+  },
+  {
+    d: 110,
+    secao: "Cidade",
+    hora: "12h00",
+    kicker: "Reabertura",
+    autor: "Redação Cidade",
+    titulo: "Prefeitura inicia demolição do muro da Praça da Estação e integra área ao parque municipal",
+    deck: "Antiga galeria subterrânea será catalogada pelo patrimônio histórico.",
+    corpo: `
+      <p>Equipes da Secretaria de Cultura iniciaram hoje a abertura oficial do trecho final da Praça da Estação, encerrando décadas de interdição ao redor dos antigos trilhos ferroviários.</p>
+      <p>Os registros fotográficos preservados por Victor Bennet e Alice Morgan passarão a integrar o acervo público permanente da cidade.</p>
+    `
+  },
+  {
+    d: 120,
     secao: "Opinião",
     hora: "18h00",
-    kicker: "Editorial",
-    autor: "Conselho Editorial",
-    titulo: "O dever de registrar o que a cidade prefere esquecer",
-    deck: "Quando versões oficiais se encerram rápido demais, cabe à imprensa manter as perguntas abertas.",
+    kicker: "Edição de Encerramento · Dia 120",
+    autor: "Lizzie Mitchell & Conselho Editorial",
+    titulo: "O arquivo permanece aberto para quem soube ler nas entrelinhas",
+    deck: "Quatro meses após a primeira publicação, a verdade sobre Mendes deixa as sombras.",
     corpo: `
-      <p>Casos que abalam uma cidade pequena costumam gerar pressa por respostas definitivas. A conclusão apressada de um inquérito oferece conforto imediato, mas raramente esclarece as contradições deixadas pelo caminho.</p>
-      <p>A <strong>Gazeta Mendes</strong> seguirá publicando cada documento, depoimento e registro técnico obtido por sua equipe, mantendo aberto o arquivo público para que cada leitor tire suas próprias conclusões.</p>
+      <p>Quando a primeira edição deste dossiê foi publicada, apenas uma versão oficial parecia existir. Foi preciso cruzar datas, decifrar recados esquecidos nos classificados e consultar registros ocultos para reconstruir o que realmente aconteceu na madrugada em que Eliza Costa desapareceu.</p>
+      <p>Na manhã de hoje, uma carta sem remetente chegou à redação contendo apenas uma fotografia revelada em papel antigo: a vista da janela de um trem partindo ao amanhecer, com as iniciais <strong>E.C.</strong> escritas no verso.</p>
+      <p>Obrigado por acompanhar cada pista até o final deste arquivo. — <strong>Gazeta Mendes</strong>.</p>
     `
   }
 ];
