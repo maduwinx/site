@@ -75,6 +75,11 @@
   
     const dataLonga = d => d.toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
   
+    function dataEdicao(d) {
+      const dt = new Date(INI.getTime() + (d - 1) * 864e5);
+      return dt.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+    }
+  
     function hojeTopo() {
       const h = $("#hoje");
       if (!h) return;
@@ -146,7 +151,7 @@
         el("p", "kicker", x.kicker),
         el("h1", "titulo", x.titulo),
         el("p", "deck", x.deck),
-        el("p", "meta", x.autor + " · " + x.hora + " · Dia " + x.d + " · " + x.secao)
+        el("p", "meta", x.autor + " · " + dataEdicao(x.d) + " às " + x.hora + " · " + x.secao)
       );
       const corpo = el("div", "corpo");
       corpo.innerHTML = x.corpo;
@@ -164,7 +169,7 @@
       DIAS.forEach((x, i) => {
         if (norm(x.secao) === alvo && liberado(x)) {
           const li = el("li");
-          const a = el("a", null, "Dia " + x.d + " · " + x.titulo);
+          const a = el("a", null, x.titulo);
           a.href = "#m" + i;
           li.appendChild(a);
           ul.appendChild(li);
@@ -212,10 +217,10 @@
   
       const cmds = {
         ajuda() {
-          return ["Comandos: ajuda · ls · cat <registro> · cesar <n> <texto> · limpar · ou digite o código do registro."];
+          return ["Comandos: ajuda · ls · cat <registro> · cesar <n> <texto> · vigenere <chave> <texto> · limpar · ou digite o código do registro."];
         },
         ls() {
-          return DIAS.filter(liberado).map(x => "Registro " + x.d + " · " + x.secao + " · " + x.titulo);
+          return DIAS.filter(liberado).map(x => "Registro " + dataEdicao(x.d) + " · " + x.secao + " · " + x.titulo);
         },
         cat(a) {
           const n = parseInt(a, 10);
@@ -226,6 +231,10 @@
         cesar(a) {
           const p = a.split(/\s+/);
           return [cesar(p.slice(1).join(" "), Number(p[0]) || 0)];
+        },
+        vigenere(a) {
+          const p = a.split(/\s+/);
+          return [vigenere(p.slice(1).join(" "), p[0] || "", true)];
         },
         limpar() {
           tela.replaceChildren();
@@ -256,7 +265,7 @@
             setTimeout(() => { location.href = destino; }, 2200);
           }
         } catch (err) {
-          imprime("Erro técnico ao consultar criptografia (abra o site via Live Server).");
+          imprime("Erro técnico ao consultar criptografia.");
         }
       }
   
