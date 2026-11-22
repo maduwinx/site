@@ -1,6 +1,6 @@
 (function () {
     "use strict";
-    const DEV = /(^|[?&])(dev|teste)(&|=|$)/.test(location.search);
+    const DEV = true;
     const $ = (s, r = document) => r.querySelector(s);
     const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
     const INI = new Date(INICIO + "T00:00:00");

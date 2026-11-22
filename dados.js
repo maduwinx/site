@@ -2,26 +2,32 @@ const JORNAL = "Gazeta Mendes";
 const INICIO = "2026-11-23";
 
 const COFRE = {
-  "07c4959c0b5d9efbb1e75c93cf215a0aa8ed423cb9ef6d4822e12cb6069a3cc8": {
-    msg: "REGISTRO D01-F LOCALIZADO: A câmera do fundo não pertencia ao Cinema Imperial. O cabo coaxial atravessava o muro até o terminal ferroviário. Verifique os registros do primeiro dia onde a praça termina.",
+  "ea170721980853c1c3c4bec3a9c76a0922db3aced6b303262695b060c2fa08e5": {
+    msg: "REGISTRO D01-F LOCALIZADO: A câmera do fundo não pertencia ao Cinema Imperial. O cabo coaxial atravessava o muro até o terminal ferroviário. Verifique os registros da primeira edição onde a praça termina.",
     ir: "#m2"
   },
-  "79919b82f9d4b5a77e1d588f8f8564830f1a8a3167f684162834b76e7f6f186d": {
+  "de4fe09e9d44ea5e4fa45aca0bebeaa6d8c47e2aa2ccb5b943d84bbab6ce5eec": {
     msg: "ARQUIVO CONFIDENCIAL H-17: Reserva efetuada em dinheiro vivo por um intermediário usando as iniciais R.C. O hóspede anterior deixou um caderno no fundo falso do guarda-roupa antes da chegada de Lizzie Mitchell.",
     ir: "#m3"
   },
-  "351f9a0d2f0f2e61d6452699235b2c2d95e824c63689575c79e0917226d35453": {
+  "b19336bbfb9d07e30db86d64f53025b1a915bc8d369c465daad6baf6153258f1": {
     msg: "TRANSCRIÇÃO DE ÁUDIO (00h12): [Estática] 'O painel voltou, mas a fita das onze e quarenta já foi substituída. Se a perícia perguntar, a queda de energia durou a madrugada inteira.'",
     ir: "#m5"
   },
-  "23c77e320b9f6e9a9807c025d495144a064b4b657726a26d0996e4b301916516": {
-    msg: "DOSSIÊ DIA 1 CONCLUÍDO: Existia uma quarta câmera ativa na madrugada do sumiço, instalada enquanto Steve Martins já estava na delegacia. Aguarde as próximas edições."
+  "db36a6681707e59a3d56fd1100f3421fbd813b1c74c34a84113a0fb9ab173416": {
+    msg: "DOSSIÊ DE VIGILÂNCIA CONCLUÍDO: Existia uma quarta câmera ativa na madrugada do sumiço, instalada enquanto Steve Martins já estava na delegacia. Acompanhe as próximas edições."
   },
-  "50868b07b79a6f07fa9a20482f1b4eb74bf960c910a8b87447edbf3b321b40f1": {
+  "17a2ca7f05a9d1088fcf604ca871842480240040585f8bc997a5130d72c0c46e": {
     msg: "FICHA DE VISITAÇÃO: Lucas Andrade assinou a retirada de chaves da sala de projeção duas vezes no mês anterior ao desaparecimento."
   },
-  "2d4a5d8e5f95f94761ea98fe8b136c13bc14e8a43fe670a604a3b52809b38b46": {
+  "6044286181dd59d4813131533b16303d8bf7083c3c23e5c471e139081e9b7764": {
     msg: "CAIXA 38 — ACERVO BENNET: Negativos originais revelam que a passagem subterrânea entre o Cinema Imperial e a Estação nunca foi emparedada."
+  },
+  "732a3d45afcd2c04b1171ae4ebe562d4a4c8f6e8c3c2fe213a9ac398ee97fa1b": {
+    msg: "PONTO DE ACESSO SUBTERRÂNEO: Entrada de serviço sob o palco da Sala 3 do Cinema Imperial. Último registro de abertura: 03h15."
+  },
+  "9671d56e4368fa5ef513ada55f8f6e4fc003505d666433512f398f5d44cdcbd7": {
+    msg: "ARQUIVO FINAL DESBLOQUEADO: Eliza Costa nunca entrou naquele carro. Ela embarcou no trem das 04h50 com documentos fornecidos por Victor Bennet. Caso encerrado."
   }
 };
 
@@ -130,12 +136,12 @@ const DIAS = [
     deck: "Anúncios publicados conforme entregues no balcão da redação.",
     corpo: `
       <p><strong>VENDE-SE</strong> máquina de costura antiga com gabinete de madeira e pedal original. Tratar após as 18h pelo telefone da redação.</p>
-      <p><strong>PROCURA-SE</strong> quem saiba ler o recado deixado na portaria da Rua Pedro Álvares, 90: <strong>Fdphud gr ixqgr</strong>. Respostas devem ser verificadas diretamente no acervo.</p>
+      <p><strong>PROCURA-SE</strong> quem saiba ler o recado deixado na portaria da Rua Pedro Álvares, 90: <strong>Fdphud gr ixqgr</strong>. <span class="sussurro" data-pista="Recuar três passos no alfabeto revela onde o cabo termina.">Verifique no acervo</span>.</p>
       <p><strong>COMUNICADO</strong> — A Farmácia Santa Rita informa que as entregas noturnas no bairro da Estação seguem operando normalmente mediante apresentação do cartão fidelidade.</p>
     `
   },
   {
-    d: 2,
+    d: 3,
     secao: "Polícia",
     hora: "08h00",
     kicker: "Depoimento",
@@ -144,11 +150,11 @@ const DIAS = [
     deck: "Documento indica que veículo do suspeito passou pela praça da rodovia estadual às 23h50.",
     corpo: `
       <p>O advogado de defesa de <strong>Steve Martins</strong> protocolou hoje no fórum um recibo eletrônico de pedágio que contradiz o depoimento da testemunha que afirmou ter visto o carro parado na Rua Pedro Álvares até as 02h40.</p>
-      <p>Se o horário do recibo for autenticado pela perícia, o suspeito estava a quarenta quilômetros de Mendes no exarento momento em que as câmeras do edifício pararam de gravar.</p>
+      <p>Se o horário do recibo for autenticado pela perícia, o suspeito estava a quarenta quilômetros de Mendes no exato momento em que as câmeras do edifício pararam de gravar.</p>
     `
   },
   {
-    d: 3,
+    d: 6,
     secao: "Cidade",
     hora: "09h15",
     kicker: "Hospedagem",
@@ -161,7 +167,7 @@ const DIAS = [
     `
   },
   {
-    d: 5,
+    d: 10,
     secao: "Cultura",
     hora: "11h00",
     kicker: "Restauração",
@@ -174,7 +180,7 @@ const DIAS = [
     `
   },
   {
-    d: 8,
+    d: 14,
     secao: "Polícia",
     hora: "07h30",
     kicker: "Perícia Independente",
@@ -187,7 +193,7 @@ const DIAS = [
     `
   },
   {
-    d: 11,
+    d: 18,
     secao: "Cidade",
     hora: "13h40",
     kicker: "Vizinhança",
@@ -200,7 +206,7 @@ const DIAS = [
     `
   },
   {
-    d: 14,
+    d: 23,
     secao: "Política",
     hora: "16h00",
     kicker: "Transparência",
@@ -213,7 +219,7 @@ const DIAS = [
     `
   },
   {
-    d: 18,
+    d: 28,
     secao: "Polícia",
     hora: "06h30",
     kicker: "Reviravolta no Inquérito",
@@ -227,7 +233,7 @@ const DIAS = [
     `
   },
   {
-    d: 22,
+    d: 33,
     secao: "Cidade",
     hora: "10h00",
     kicker: "Segurança Privada",
@@ -240,7 +246,7 @@ const DIAS = [
     `
   },
   {
-    d: 26,
+    d: 38,
     secao: "Opinião",
     hora: "08h00",
     kicker: "Errata",
@@ -252,7 +258,7 @@ const DIAS = [
     `
   },
   {
-    d: 30,
+    d: 44,
     secao: "Cultura",
     hora: "15h00",
     kicker: "Acervo Fotográfico",
@@ -265,7 +271,7 @@ const DIAS = [
     `
   },
   {
-    d: 34,
+    d: 50,
     secao: "Política",
     hora: "09h00",
     kicker: "Bastidores",
@@ -278,7 +284,7 @@ const DIAS = [
     `
   },
   {
-    d: 38,
+    d: 56,
     secao: "Polícia",
     hora: "06h15",
     kicker: "Plantão Policial",
@@ -292,12 +298,12 @@ const DIAS = [
     `
   },
   {
-    d: 42,
+    d: 63,
     secao: "Opinião",
     hora: "07h00",
     kicker: "Retificação",
     autor: "Conselho Editorial",
-    titulo: "Nota de correção sobre reportagens publicadas no mês anterior",
+    titulo: "Nota de correção sobre reportagens publicadas anteriormente",
     deck: "Direção informa que dados técnicos divulgados sem revisão passaram por ajuste editorial.",
     corpo: `
       <p>A direção da <strong>Gazeta Mendes</strong> comunica aos assinantes que os horários mencionados nas reportagens referentes ao edifício da Rua Pedro Álvares, 90, foram revisados conforme o laudo oficial da delegacia.</p>
@@ -305,7 +311,7 @@ const DIAS = [
     `
   },
   {
-    d: 47,
+    d: 70,
     secao: "Cidade",
     hora: "11h20",
     kicker: "Urbanismo",
@@ -318,7 +324,7 @@ const DIAS = [
     `
   },
   {
-    d: 52,
+    d: 77,
     secao: "Polícia",
     hora: "14h00",
     kicker: "Testemunho",
@@ -331,7 +337,7 @@ const DIAS = [
     `
   },
   {
-    d: 58,
+    d: 84,
     secao: "Cultura",
     hora: "16h30",
     kicker: "Acervo",
@@ -344,7 +350,7 @@ const DIAS = [
     `
   },
   {
-    d: 65,
+    d: 91,
     secao: "Política",
     hora: "10h00",
     kicker: "Investigação",
@@ -357,7 +363,7 @@ const DIAS = [
     `
   },
   {
-    d: 72,
+    d: 98,
     secao: "Polícia",
     hora: "08h45",
     kicker: "Dossiê",
@@ -370,7 +376,7 @@ const DIAS = [
     `
   },
   {
-    d: 80,
+    d: 105,
     secao: "Cidade",
     hora: "19h00",
     kicker: "Centro Histórico",
@@ -383,7 +389,7 @@ const DIAS = [
     `
   },
   {
-    d: 85,
+    d: 110,
     secao: "Polícia",
     hora: "06h00",
     kicker: "Urgente",
@@ -397,7 +403,7 @@ const DIAS = [
     `
   },
   {
-    d: 92,
+    d: 115,
     secao: "Polícia",
     hora: "07h30",
     kicker: "Revelação",
@@ -410,7 +416,7 @@ const DIAS = [
     `
   },
   {
-    d: 100,
+    d: 118,
     secao: "Polícia",
     hora: "09h00",
     kicker: "Desfecho",
@@ -423,29 +429,16 @@ const DIAS = [
     `
   },
   {
-    d: 110,
-    secao: "Cidade",
-    hora: "12h00",
-    kicker: "Reabertura",
-    autor: "Redação Cidade",
-    titulo: "Prefeitura inicia demolição do muro da Praça da Estação e integra área ao parque municipal",
-    deck: "Antiga galeria subterrânea será catalogada pelo patrimônio histórico.",
-    corpo: `
-      <p>Equipes da Secretaria de Cultura iniciaram hoje a abertura oficial do trecho final da Praça da Estação, encerrando décadas de interdição ao redor dos antigos trilhos ferroviários.</p>
-      <p>Os registros fotográficos preservados por Victor Bennet e Alice Morgan passarão a integrar o acervo público permanente da cidade.</p>
-    `
-  },
-  {
     d: 120,
     secao: "Opinião",
     hora: "18h00",
-    kicker: "Edição de Encerramento · Dia 120",
+    kicker: "Edição Especial de Encerramento",
     autor: "Lizzie Mitchell & Conselho Editorial",
     titulo: "O arquivo permanece aberto para quem soube ler nas entrelinhas",
     deck: "Quatro meses após a primeira publicação, a verdade sobre Mendes deixa as sombras.",
     corpo: `
       <p>Quando a primeira edição deste dossiê foi publicada, apenas uma versão oficial parecia existir. Foi preciso cruzar datas, decifrar recados esquecidos nos classificados e consultar registros ocultos para reconstruir o que realmente aconteceu na madrugada em que Eliza Costa desapareceu.</p>
-      <p>Na manhã de hoje, uma carta sem remetente chegou à redação contendo apenas uma fotografia revelada em papel antigo: a vista da janela de um trem partindo ao amanhecer, com as iniciais <strong>E.C.</strong> escritas no verso.</p>
+      <p>Na manhã de hoje, uma carta sem remetente chegou à redação contendo apenas uma fotografia revelada em papel antigo: a vista da janela de um trem partindo ao amanhecer, com a frase manuscrita no verso: <span class="selecione">Eliza vive</span>.</p>
       <p>Obrigado por acompanhar cada pista até o final deste arquivo. — <strong>Gazeta Mendes</strong>.</p>
     `
   }
